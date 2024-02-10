@@ -2,7 +2,11 @@ class ArticlesController < ApplicationController
     before_action :set_article, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
     before_action :admin_required, only: [:new, :create, :edit, :update, :destroy]
-  
+
+    def index
+      @articles = Article.includes(:user).order(created_at: :desc).limit(10)
+    end
+
     def new
       @article = Article.new
     end

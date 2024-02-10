@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1>Newest Articles</h1>
+</div>
+
+<div class="articles-index">
+  <% @articles.each do |article| %>
+    <div class="article-card">
+      <div class="article-header">
+        <h2><%= link_to article.title, article %></h2>
+        <p class="author-name">By <%= article.user.name %></p>
+      </div>
+      <div class="article-meta">
+        <p class="publication-date"><%= article.created_at.strftime("%B %d, %Y") %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
