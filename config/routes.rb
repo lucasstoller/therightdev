@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :articles
 
   root "articles#index"
+
+  get "/admin" => redirect("/users/sign_in")
 end
