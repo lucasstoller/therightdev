@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Therightdev</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>TheRightDev</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <%= link_to "THE RIGHT DEV", root_path, class: "navbar-item" %>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <% if user_signed_in? %>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete, form: { "data-turbo" => "false" }, class: "navbar-item" %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path, class: "navbar-item" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  
-    <%= yield %>
-  </body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <%= yield %>
+
+  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+</body>
 </html>
+
