@@ -72,6 +72,53 @@
   background-color: #0056b3;
 }
 
+.article-edit-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);}
+
+/* Admin buttons styling */
+.admin-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.admin-action-btn {
+  display: inline-block; /* Align buttons side by side */
+  margin: 0 10px; /* Add some space between the buttons */
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none; /* Remove underline from edit link */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-article-link {
+  background-color: #007bff; /* Bootstrap primary color for edit button */
+}
+
+.delete-article-form .delete-article-btn {
+  background-color: #dc3545; /* Bootstrap danger color for delete button */
+}
+
+.admin-action-btn:hover {
+  opacity: 0.8;
+}
+
+.edit-article-link:hover, input:hover {
+  opacity: 0.8;
+}
+
+.delete-article-form .delete-article-btn:hover {
+  opacity: 0.8;
+}
+
+
 @media (max-width: 768px) {
   .article-show {
     padding: 15px;
