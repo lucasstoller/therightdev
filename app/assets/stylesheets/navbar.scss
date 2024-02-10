@@ -1,7 +1,7 @@
 /* Navbar styles */
 .navbar {
   background-color: #073642; /* A dark bluish color */
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 .container {
@@ -24,11 +24,6 @@
   text-decoration: none;
   padding: 8px 16px;
   font-weight: bold;
-}
-
-.navbar-item:hover {
-  background-color: #002b36; /* Slightly darker background on hover */
-  color: #fff;
 }
 
 /* Responsive adjustments */
