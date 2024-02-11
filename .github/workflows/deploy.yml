@@ -1,0 +1,59 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1.2'
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libpq-dev nodejs npm
+        gem install bundler
+        bundle install --without development test
+        npm install --global yarn
+        yarn install
+
+    - name: Precompile assets
+      env:
+        RAILS_ENV: production
+        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }} # Ensure this is set in your GitHub Secrets
+      run: |
+        rails assets:precompile
+
+    # Add steps for database migration if needed
+
+    - name: Deploy to EC2
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+        port: 22
+        source: "."
+        target: "/var/www/your_project_name"
+
+    - name: Restart server (example with Passenger)
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd /var/www/your_project_name
+          bundle install
+          RAILS_ENV=production rails db:migrate
+          sudo passenger-config restart-app /
