@@ -43,7 +43,7 @@ jobs:
         key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         port: 22
         source: "."
-        target: "/var/www/your_project_name"
+        target: "/var/www/therightdev"
 
     - name: Restart server (example with Passenger)
       uses: appleboy/ssh-action@master
@@ -53,7 +53,7 @@ jobs:
         key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd /var/www/your_project_name
+          cd /var/www/therightdev
           bundle install
           RAILS_ENV=production rails db:migrate
           sudo passenger-config restart-app /
