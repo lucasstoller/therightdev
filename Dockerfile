@@ -20,7 +20,7 @@ ENV SECRET_KEY_BASE="${SECRET_KEY_BASE}"
 ENV RAILS_MASTER_KEY="${RAILS_MASTER_KEY}"
 
 # Create master.key file and write RAILS_MASTER_KEY to it
-RUN echo "${RAILS_MASTER_KEY}" > config/master.key
+RUN echo "${RAILS_MASTER_KEY}" > config/credentials/production.key
 
 # Conditionally precompile Rails assets
 RUN if [ "$RAILS_ENV" = "production" ]; then bundle exec rake assets:precompile; fi
