@@ -22,9 +22,7 @@ ARG RAILS_MASTER_KEY
 ENV RAILS_MASTER_KEY="${RAILS_MASTER_KEY}"
 
 # Create master.key file and write RAILS_MASTER_KEY to it
-RUN echo "${RAILS_MASTER_KEY}" > master.key
-RUN mkdir -p config/credentials
-RUN echo "${RAILS_MASTER_KEY}" > config/credentials/master.key
+RUN echo "${RAILS_MASTER_KEY}" > config/master.key
 
 # Conditionally precompile Rails assets
 RUN if [ "$RAILS_ENV" = "production" ]; then bundle exec rake assets:precompile; fi
