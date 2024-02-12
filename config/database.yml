@@ -13,14 +13,14 @@ development:
   database: therightdev_development
   username: therightdev
   password: <%= ENV['THERIGHTDEV_DATABASE_PASSWORD'] %>
-  host: localhost
+  host: db
 
 test:
   <<: *default
   database: therightdev_test
   username: therightdev
   password: <%= ENV['THERIGHTDEV_DATABASE_PASSWORD'] %>
-  host: localhost
+  host: db
 
 production:
   <<: *default
