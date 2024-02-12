@@ -45,5 +45,4 @@ jobs:
           docker pull ${{ secrets.ECR_REPOSITORY }}:latest
           docker stop therightdev-web || true
           docker rm therightdev-web || true
-          docker run -d --name therightdev-web -p 80:3000 ${{ secrets.ECR_REPOSITORY }}:latest
-          docker run -d -p 80:3000 -e DB_HOST=${{ secrets.DB_HOST }} -e DB_PORT=${{ secrets.DB_PORT }} -e DB_USER=${{ secrets.DB_USER }} -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} -e DB_NAME=${{ secrets.DB_NAME }} -e RAILS_ENV=production -e RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}  ${{ secrets.ECR_REPOSITORY }}:latest
+          docker run -d --name therightdev-web -p 80:3000 -e DB_HOST=${{ secrets.DB_HOST }} -e DB_PORT=${{ secrets.DB_PORT }} -e DB_USER=${{ secrets.DB_USER }} -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} -e DB_NAME=${{ secrets.DB_NAME }} -e RAILS_ENV=production -e RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}  ${{ secrets.ECR_REPOSITORY }}:latest
