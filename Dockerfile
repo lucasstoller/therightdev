@@ -23,7 +23,7 @@ ENV RAILS_MASTER_KEY="${RAILS_MASTER_KEY}"
 
 # Create master.key file and write RAILS_MASTER_KEY to it
 RUN echo "${RAILS_MASTER_KEY}" > master.key
-RUN mdkir -p config/credentials
+RUN mkdir -p config/credentials
 RUN echo "${RAILS_MASTER_KEY}" > config/credentials/master.key
 
 # Conditionally precompile Rails assets
