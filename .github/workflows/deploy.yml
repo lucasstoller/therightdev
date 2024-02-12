@@ -11,6 +11,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    
+    - name: Debug environment variables
+      run: env | grep -v SECRET_KEY_BASE
 
     - name: Build Docker Image
       run: |
