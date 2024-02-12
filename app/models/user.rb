@@ -8,4 +8,9 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+
+  def inspect
+    filtered = self.attributes.except('encrypted_password')
+    "#<#{self.class} #{filtered.map{ |k, v| "#{k}: #{v.inspect}" }.join(", ")}>"
+  end
 end

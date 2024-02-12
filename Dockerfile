@@ -13,7 +13,14 @@ RUN bundle install
 # Bundle app source
 COPY . .
 
-# Make port 8080 available to the world outside this container
+# Set RAILS_ENV environment variable
+ARG RAILS_ENV
+ENV RAILS_ENV=${RAILS_ENV:-development}
+
+# Conditionally precompile Rails assets
+RUN if [ "$RAILS_ENV" = "production" ]; then bundle exec rake assets:precompile; fi
+
+# Make port 3000 available to the world outside this container
 EXPOSE 3000
 
 # Run the app when the container launches

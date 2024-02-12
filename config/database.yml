@@ -24,7 +24,8 @@ test:
 
 production:
   <<: *default
-  database: therightdev_production
-  username: therightdev
-  password: <%= ENV['THERIGHTDEV_DATABASE_PASSWORD'] %>
-  host: localhost
+  host: <%= ENV['DB_HOST'] %>
+  port: <%= ENV['DB_PORT'] %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
