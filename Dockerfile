@@ -16,6 +16,7 @@ COPY . .
 # Set RAILS_ENV environment variable
 ARG RAILS_ENV
 ENV RAILS_ENV=${RAILS_ENV:-development}
+ENV SECRET_KEY_BASE=$SECRET_KEY_BASE
 
 # Conditionally precompile Rails assets
 RUN if [ "$RAILS_ENV" = "production" ]; then bundle exec rake assets:precompile; fi
