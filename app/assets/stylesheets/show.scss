@@ -7,11 +7,27 @@
   color: #333;
 }
 
-.article-title {
-  font-size: 36px;
+.article-header {
   margin-bottom: 20px;
+  background-color: #fff;
 }
 
+.article-title {
+  font-size: 36px;
+  text-align: center;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-family: Fredoka, sans-serif;
+  font-size: 1.2em;
+
+  .author-name, .publication-date {
+    margin: 0; 
+  }
+}
 .article-body {
   font-size: 20px;
 }

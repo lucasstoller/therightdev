@@ -3,7 +3,13 @@
 </div>
 
 <div class="article-show">
-  <h1 class="article-title"><%= @article.title %></h1>
+  <div class="article-header">
+    <h1 class="article-title"><%= @article.title %></h1>
+    <div class="article-meta">
+      <p class="author-name">By <%= @article.user.name %></p>
+      <p class="publication-date">Last updated at <%= @article.updated_at.strftime("%B %d, %Y") %></p>
+    </div>
+  </div>
   <div class="article-body">
     <%= @article.content %>
   </div>
