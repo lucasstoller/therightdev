@@ -10,12 +10,21 @@
   <%= stylesheet_link_tag 'actiontext', 'data-turbo-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
   <%= javascript_importmap_tags %>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap">
 </head>
 <body>
   <nav class="navbar">
     <div class="container">
       <div class="navbar-brand">
-        <%= link_to "THE RIGHT DEV", root_path, class: "navbar-item" %>
+        <div class="brand-logo">
+          <%= image_tag("logo.png", alt: "THE RIGHT DEV") %>
+        </div>
+        <div class="brand-text">
+          <%= link_to root_path, class: "navbar-item" do %>
+            <h1>The Right Dev</h1>
+            <p>Keep Learning, Keep Coding</p>
+          <% end %>
+        </div>
       </div>
       <div class="navbar-menu">
         <div class="navbar-end">

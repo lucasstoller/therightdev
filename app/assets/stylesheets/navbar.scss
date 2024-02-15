@@ -1,7 +1,7 @@
 /* Navbar styles */
 .navbar {
-  background-color: #073642; /* A dark bluish color */
-  padding: 20px 0;
+  background-color: #4d90ec;
+  padding: 40px 0;
 }
 
 .container {
@@ -14,13 +14,34 @@
 }
 
 .navbar-brand {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #fff;
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 100px;
+    width: auto;
+  }
+
+  .brand-text {
+    margin-left: 10px;
+    font-family: 'Fredoka', sans-serif;
+
+    h1 {
+      font-size: 2em;
+      font-weight: bold;
+      color: #fff;
+      margin: 0;
+    }
+
+    p {
+      color: #fff;
+      margin: 0;
+    }
+  }
 }
 
 .navbar-item {
-  color: #819090; /* A light grey color for contrast */
+  color: #fff;
   text-decoration: none;
   padding: 8px 16px;
   font-weight: bold;
@@ -34,6 +55,12 @@
   }
 
   .navbar-brand {
-    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+
+    .brand-text {
+      margin-left: 0;
+      text-align: center;
+    }
   }
 }
