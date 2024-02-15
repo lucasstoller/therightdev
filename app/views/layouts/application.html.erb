@@ -36,12 +36,14 @@
     </div>
   </nav>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <div class="notices">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
 
-  <%= yield %>
-
-  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+  <div class="main-content">
+    <%= yield %>
+  </div>
 
   <footer class="footer">
     <div class="container">
